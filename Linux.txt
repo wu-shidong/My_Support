@@ -1,0 +1,27 @@
+一、目录操作:
+pwd			查看当前工作目录
+clear 			清除屏幕
+ll			查看当前目录下内容（LL的小写）
+cd ~			当前用户目录
+cd /			根目录
+cd -			上一次访问的目录
+cd ..			上一级目录
+mkdir aaa		在当前目录下创建aaa目录，相对路径；
+mkdir ./bbb		在当前目录下创建bbb目录，相对路径；
+mkdir /ccc		在根目录下创建ccc目录，绝对路径；
+mkdir -p temp/nginx     递归创建目录（会创建里面没有的目录文件夹）
+mkdir {dirA,dirB}  	批量创建测试目录
+mv 原先目录 文件的名称    mv tomcat001 tomcat  重命名
+mv	/aaa /bbb       将根目录下的aaa目录，移动到bbb目录下(假如没有bbb目录，则重命名为bbb)；
+mv	bbbb usr/bbb	将当前目录下的bbbb目录，移动到usr目录下，并且修改名称为bbb；
+mv	bbb usr/aaa	将当前目录下的bbbb目录，移动到usr目录下，并且修改名称为aaa；
+cp -r /aaa /bbb		将/目录下的aaa目录复制到/bbb目录下，在/bbb目录下的名称为aaa
+cp -r /aaa /bbb/aaa	将/目录下的aa目录复制到/bbb目录下，且修改名为aaa;
+rm -rf /bbb		强制删除/目录下的bbb目录。如果bbb目录中还有子目录，也会被强制删除，不会提示；
+rm -r /bbb		普通删除。会询问你是否删除每一个文件
+rmdir test01		目录的删除
+tree test01/		查看树状目录结构
+touch dirA/{A1,A2,A3}   dirA创建三个文件dirA/A1,dirA/A2,dirA/A3
+
+
+
