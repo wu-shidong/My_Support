@@ -1,7 +1,68 @@
 ubuntu环境下
-1.安装软件
-sudo apt-get install build-essential 
-sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
-sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+#下载源码
+https://opencv.org/releases/ #opencv
+https://github.com/opencv/opencv_contrib/tags #opencv-contrib
+opencv-contrib 文件夹放在opencv 文件夹里面
 
-2.
+#安装依赖项
+  sudo apt-get install build-essential 
+  sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
+  sudo apt-get install python-dev python-numpy libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
+
+#如果出现以下情况 Unable to locate package libjasper-dev
+执行以下命令:
+  sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
+  sudo apt update
+  sudo apt install libjasper1 libjasper-dev
+
+
+
+#新建并进入build文件夹
+  mkdir build
+  cd build
+
+#然后在该路径下cmake（这里版本号需要改成实际值）
+  sudo cmake -D CMAKE_BUILD_TYPE=Release -D CMAKE_INSTALL_PREFIX=/usr/local -D OPENCV_EXTRA_MODULES_PATH=../opencv_contrib-3.4.0/modules ..
+
+#查看线程数
+  nproc
+可查看线程数，线程为4，因此数字为4
+
+#编译
+  make -j4
+
+#安装
+  sudo make install
+
+#修改动态库
+  sudo gedit /etc/ld.so.conf.d/opencv.conf
+在文档末尾添加:
+/usr/local/lib
+
+#运行：
+sudo gedit /etc/bash.bashrc
+
+#打开文件后在末尾输入：
+PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/usr/local/lib/pkgconfig
+export PKG_CONFIG_PATH
+
+#保存退出，终端输入：
+source /etc/bash.bashrc
+
+#新建终端，输入：
+sudo updatedb
+
+#验证 
+#查看版本号
+pkg-config --modversion opencv4
+#查看libs库
+pkg-config --libs opencv4 
+
+
+
+
+
+
+
+
+
