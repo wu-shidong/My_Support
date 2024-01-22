@@ -1,4 +1,4 @@
-ubuntu环境下
+------------------------------------------------------------AMD X64ubuntu环境下---------------------------------------------------------------
 #下载源码
 https://opencv.org/releases/ #opencv
 https://github.com/opencv/opencv_contrib/tags #opencv-contrib
@@ -57,6 +57,8 @@ sudo updatedb
 pkg-config --modversion opencv4
 #查看libs库
 pkg-config --libs opencv4 
+
+------------------------------------------------------------windows环境下---------------------------------------------------------------
 
 
 
